@@ -45,3 +45,15 @@ exports.profile = function(req, res, next) {
    return res.status(401).json({ message: 'Invalid token' });
   }
 };
+exports.profile_get = function(req, res) {
+  User.findOne({
+    _id: req.body.userid
+  }, function(err, user) {
+    if (err) throw err;
+    if (user){
+      return res.json(({ fullName: user.fullName }));
+    } else {
+      return res.status(401).json({ message: 'Invalid token' });
+    }
+})
+}

@@ -1,5 +1,6 @@
 let mongoose = require('mongoose'),
     Schema = mongoose.Schema;
+
 let RecipeSchema = new Schema({
     title: {
         type: String,
@@ -33,6 +34,11 @@ let RecipeSchema = new Schema({
     updated_last: {
         type: Date,
         default: Date.now
+    },
+    id: {
+        type: String,
+        unique: true,
+        required: true
     }
 });
 

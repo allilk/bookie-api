@@ -23,6 +23,7 @@
         "mongodb": "^3.6.3",
         "mongoose": "^5.11.9",
         "morgan": "^1.10.0",
+        "randomstring": "^1.1.5",
         "remarkable": "^2.0.1",
         "sirv": "^1.0.10"
     },
