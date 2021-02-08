@@ -30,6 +30,8 @@ exports.get = function(req, res) {
 exports.update = function(req, res) {
     Recipe.findById(req.body._id, function(err, recipe) {
         recipe.title = req.body.title || recipe.title;
+        recipe.steps = req.body.steps || recipe.steps;
+        recipe.ingredients = req.body.ingredients || recipe.ingredients;
         recipe.updated_last = Date.now();
         recipe.updated_by = req.user._id;
         recipe.save(function(err, response) {

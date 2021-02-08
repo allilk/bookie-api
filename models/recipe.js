@@ -7,11 +7,11 @@ let RecipeSchema = new Schema({
         required: true
     },
     ingredients: {
-        type: Array,
+        type: String,
         required: true
     },
     steps: {
-        type: Array,
+        type: String,
         required: true
     },
     yield: {
