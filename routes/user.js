@@ -2,10 +2,10 @@
 module.exports = function(app) {
     let userHandlers = require('../controllers/user.js');
     // todoList Routes
-    app.route('/profile')
+    app.route('/api/profile')
         .post(userHandlers.loginRequired, userHandlers.profile);
-    app.route('/auth/register')
+    app.route('/api/auth/register')
         .post(userHandlers.register);
-    app.route('/auth/sign_in')
+    app.route('/api/auth/sign_in')
         .post(userHandlers.sign_in);
 };

@@ -15,18 +15,29 @@ exports.new = function(req, res) {
     });
   };
 exports.get = function(req, res) {
-    Recipe.findOne({
+      Recipe.findOne({
         _id: req.body._id
-    }, function(err, recipe) {
-        if (err) {
-            return res.status(400).send({
-              message: err
-            });
-          } else {
-            return res.json(recipe);
-          }
-    });
+      }, function(err, recipe) {
+          if (err) {
+              return res.status(400).send({
+                message: err
+              });
+            } else {
+              return res.json(recipe);
+            }
+      });
 };
+exports.get_all = function(req, res) {
+  Recipe.find(function(err, recipes){
+    if (err) {
+      return res.status(400).send({
+        message: err,
+      });
+    } else {
+      return res.json(recipes)
+    }
+  });
+}
 exports.update = function(req, res) {
     Recipe.findById(req.body._id, function(err, recipe) {
         recipe.title = req.body.title || recipe.title;

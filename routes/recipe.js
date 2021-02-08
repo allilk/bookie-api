@@ -1,11 +1,12 @@
 module.exports = function(app) {
     let recipeHandlers = require('../controllers/recipe.js');
     let userHandlers = require('../controllers/user.js');
-    // todoList Routes
-    app.route('/recipe')
-        .get(recipeHandlers.get);
-    app.route('/recipe/new')
+    app.route('/api/recipe')
+        .get(recipeHandlers.get_all);
+    app.route('/api/recipe/get')
+        .post(recipeHandlers.get);
+    app.route('/api/recipe/new')
         .post(userHandlers.loginRequired, recipeHandlers.new);
-    app.route('/recipe/update')
+    app.route('/api/recipe/update')
         .put(userHandlers.loginRequired, recipeHandlers.update)
 }

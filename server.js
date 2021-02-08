@@ -4,8 +4,9 @@ let express = require('express'),
   User = require('./models/user'),
   Recipe = require('./models/recipe'),
   bodyParser = require('body-parser'),
-  jsonwebtoken = require("jsonwebtoken");
-
+  jsonwebtoken = require("jsonwebtoken"),
+  cors = require('cors');
+app.use(cors());
 const mongoose = require('mongoose');
 const option = {
     socketTimeoutMS: 30000,
