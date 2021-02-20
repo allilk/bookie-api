@@ -6,7 +6,6 @@ let express = require("express"),
   bodyParser = require("body-parser"),
   jsonwebtoken = require("jsonwebtoken"),
   cors = require("cors");
-import { mongo_uri } from "./config";
 
 app.use(cors());
 const mongoose = require("mongoose");
@@ -18,7 +17,7 @@ const option = {
 };
 
 const mongoURI = process.env.MONGODB_URI;
-mongoose.connect(mongo_uri, option).then(
+mongoose.connect('', option).then(
   function () {
     //connected successfully
   },
@@ -53,7 +52,7 @@ app.use(function (req, res, next) {
 let routes = require("./routes/user");
 routes(app);
 let recipeRoutes = require("./routes/recipe");
-const { mongo_uri } = require("./config");
+
 recipeRoutes(app);
 app.use(function (req, res) {
   res.status(404).send({ url: req.originalUrl + " not found" });

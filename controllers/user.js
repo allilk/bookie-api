@@ -32,9 +32,10 @@ exports.sign_in = function (req, res) {
           });
       }
       return res.json({
-        token: jwt.sign(
-          { email: user.email, fullName: user.fullName, _id: user._id },
-          "RESTFULAPIs"
+        token: jwt.sign({ 
+          email: user.email, fullName: user.fullName, _id: user._id },
+          "RESTFULAPIs",
+          { expiresIn: '1h'},
         ),
       });
     }
